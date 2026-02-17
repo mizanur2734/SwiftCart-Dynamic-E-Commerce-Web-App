@@ -23,7 +23,6 @@ const displayCategoryButtons = (categories) => {
   });
 };
 
-// ------------------------------
 // 2 Display Products (Reusable)
 const displayProducts = (products) => {
   const container = document.getElementById("product-container");
@@ -66,7 +65,7 @@ const displayProducts = (products) => {
   });
 };
 
-// ------------------------------
+
 // 3️ Load Home Page Products (first 3)
 const loadHomeProducts = () => {
   fetch("https://fakestoreapi.com/products")
@@ -74,7 +73,7 @@ const loadHomeProducts = () => {
     .then(data => displayProducts(data.slice(0, 3))); // show first 3
 };
 
-// ------------------------------
+
 // 4️ Filter Products by Category
 const filterProducts = (category) => {
   fetch(`https://fakestoreapi.com/products/category/${category}`)
@@ -82,7 +81,6 @@ const filterProducts = (category) => {
     .then(data => displayProducts(data));
 };
 
-// ------------------------------
 // 5️ Load All Products (for Product page)
 const loadAllProducts = () => {
   fetch("https://fakestoreapi.com/products")
@@ -90,7 +88,7 @@ const loadAllProducts = () => {
     .then(data => displayProducts(data));
 };
 
-// ------------------------------
+
 // 6️ Start App
 window.addEventListener("DOMContentLoaded", () => {
   loadCategories();    // category buttons
