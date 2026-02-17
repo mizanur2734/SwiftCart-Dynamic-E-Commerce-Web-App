@@ -1,5 +1,5 @@
-// ------------------------------
-// 1️⃣ Load Categories (Buttons)
+
+// 1️ Load Categories (Buttons)
 const loadCategories = () => {
   fetch("https://fakestoreapi.com/products/categories")
     .then(res => res.json())
@@ -8,7 +8,7 @@ const loadCategories = () => {
 
 const displayCategoryButtons = (categories) => {
   const levelContainer = document.getElementById("level-container");
-  if (!levelContainer) return; // safety check
+  if (!levelContainer) return; 
   levelContainer.innerHTML = "";
 
   categories.forEach(category => {
@@ -24,7 +24,7 @@ const displayCategoryButtons = (categories) => {
 };
 
 // ------------------------------
-// 2️⃣ Display Products (Reusable)
+// 2 Display Products (Reusable)
 const displayProducts = (products) => {
   const container = document.getElementById("product-container");
   if (!container) return; // safety check
@@ -46,7 +46,7 @@ const displayProducts = (products) => {
         </div>
 
         <h3 class="font-semibold mb-2">
-          ${product.title.substring(0, 27)}${product.title.length > 27 ? "..." : ""}
+          ${product.title.substring(0, 20)}${product.title.length > 17 ? "..." : ""}
         </h3>
 
         <p class="font-bold mb-4">$${product.price}</p>
@@ -67,7 +67,7 @@ const displayProducts = (products) => {
 };
 
 // ------------------------------
-// 3️⃣ Load Home Page Products (first 3)
+// 3️ Load Home Page Products (first 3)
 const loadHomeProducts = () => {
   fetch("https://fakestoreapi.com/products")
     .then(res => res.json())
@@ -75,7 +75,7 @@ const loadHomeProducts = () => {
 };
 
 // ------------------------------
-// 4️⃣ Filter Products by Category
+// 4️ Filter Products by Category
 const filterProducts = (category) => {
   fetch(`https://fakestoreapi.com/products/category/${category}`)
     .then(res => res.json())
@@ -83,7 +83,7 @@ const filterProducts = (category) => {
 };
 
 // ------------------------------
-// 5️⃣ Load All Products (for Product page)
+// 5️ Load All Products (for Product page)
 const loadAllProducts = () => {
   fetch("https://fakestoreapi.com/products")
     .then(res => res.json())
@@ -91,9 +91,8 @@ const loadAllProducts = () => {
 };
 
 // ------------------------------
-// 6️⃣ Start App
+// 6️ Start App
 window.addEventListener("DOMContentLoaded", () => {
   loadCategories();    // category buttons
   loadHomeProducts();  // home page → first 3 products
-  // loadAllProducts(); // uncomment this on Product page only
 });
